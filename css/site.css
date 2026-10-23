@@ -38,7 +38,7 @@ h1,h2,h3,h4{color:var(--ink);font-weight:600;line-height:1.2;margin:0 0 .6em;let
    salon's own sign. Montserrat carries everything smaller, where the serif's
    thin strokes stop holding up. */
 h1,h2{
-  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  font-family:'Marcellus',Georgia,'Times New Roman',serif;
   font-weight:400;letter-spacing:.01em;line-height:1.12;
 }
 h1{font-size:clamp(2.7rem,6.4vw,4.4rem);}
@@ -150,8 +150,8 @@ body.nav-open .site-header{box-shadow:none;}
   margin-right:auto;
 }
 .brand-name{
-  font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;
-  font-size:1.5rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  font-family:'Marcellus',Georgia,'Times New Roman',serif;
+  font-size:1.5rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
   line-height:1;transition:opacity .3s;
 }
 @media(max-width:400px){.brand-name{font-size:1.25rem;letter-spacing:.07em;}}
@@ -210,7 +210,7 @@ body.nav-open .site-header{box-shadow:none;}
   .nav-gift + .btn{margin-top:12px;}
   .nav-wordmark{
     display:block;margin:auto auto 6px;padding-top:38px;text-align:center;
-    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:500;
+    font-family:'Marcellus',Georgia,serif;font-size:1.7rem;font-weight:400;
     letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.5;
   }
 
@@ -234,42 +234,57 @@ body.nav-open .site-header{box-shadow:none;}
   .drop a{padding:14px 0 14px 18px;color:var(--muted);font-size:.78rem;}
 }
 
-/* ---------- hero (photo left, copy right on desktop) ---------- */
+/* ---------- hero (full-bleed photo, copy overlaid right) ---------- */
 .hero{
-  position:relative;margin-top:74px;background:var(--champagne);
-  display:grid;grid-template-columns:1.18fr .82fr;align-items:stretch;overflow:hidden;
+  position:relative;margin-top:74px;background:var(--champagne-2);
+  display:flex;align-items:center;overflow:hidden;
   min-height:calc(100vh - 74px);
 }
-.hero-media{position:relative;min-height:calc(100vh - 74px);background:var(--champagne-2);}
-/* the salon sign sits left of centre — crop from the right so it always reads */
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:12% center;}
-/* a whisper of shade where the photo meets the copy panel */
-.hero-media::after{
+.hero-media{position:absolute;inset:0;}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;}
+/* Scrim: heaviest on the right, where the copy sits, and fading out well
+   before the salon sign on the left so the lettering stays clean. */
+.hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to right,rgba(28,24,21,0) 76%,rgba(28,24,21,.07) 100%);
+  background:
+    linear-gradient(to left,
+      rgba(24,20,16,.76) 0%, rgba(24,20,16,.66) 20%,
+      rgba(24,20,16,.34) 36%, rgba(24,20,16,0) 58%),
+    linear-gradient(to top,
+      rgba(24,20,16,.34) 0%, rgba(24,20,16,0) 46%);
 }
-.hero .hero-copy{display:flex;align-items:center;padding:4.5em 0;}
-.hero .inner{padding:0 clamp(30px,4.4vw,66px);max-width:580px;}
+.hero .hero-copy{position:relative;z-index:2;width:100%;}
+/* The copy sits in the rightmost band of the VIEWPORT, not of the page
+   container. The photo has no horizontal crop at desktop ratios, so the
+   mirror always lands at ~56% across — anchoring the text to the right
+   edge keeps it off the mirror at every width. */
+.hero .inner{
+  width:100%;max-width:none;margin:0;
+  padding:0 clamp(28px,4vw,72px) 0 0;
+  display:grid;grid-template-columns:1fr minmax(0,36%);
+}
+.hero .inner > *{grid-column:2;}
+.hero h1,.hero p{color:#fff;}
+.hero .eyebrow{color:rgba(255,255,255,.85);}
 .hero-title{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:clamp(2.8rem,4.6vw,4.3rem);font-weight:400;line-height:1.04;
-  letter-spacing:.015em;margin:0 0 .35em;
+  font-family:'Marcellus',Georgia,serif;
+  font-size:clamp(2.3rem,3.4vw,3.6rem);font-weight:400;line-height:1.06;
+  letter-spacing:.015em;margin:0 0 .35em;text-shadow:0 2px 24px rgba(24,20,16,.5);
 }
-.hero-title em{font-style:normal;display:block;color:var(--clay-dark);}
+.hero-title em{font-style:normal;display:block;color:#e4d4bd;}
 .hero .hero-sub{
-  font-size:clamp(1.02rem,1.3vw,1.18rem);font-weight:300;max-width:34ch;
-  margin-bottom:1.9em;color:var(--body);
+  font-size:clamp(1.02rem,1.3vw,1.18rem);font-weight:300;max-width:32ch;
+  margin-bottom:1.9em;text-shadow:0 2px 16px rgba(24,20,16,.4);
 }
 .hero .btn-row{margin-top:0;}
 .hero-tags{
   display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:2.2em;
   font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--clay-dark);
+  color:rgba(255,255,255,.85);
 }
-/* the split needs a bit less photo once the panel gets tight */
+/* the overlay column needs more room once the viewport narrows */
 @media(max-width:1080px){
-  .hero{grid-template-columns:1fr 1fr;}
-  .hero .inner{padding:0 30px;}
+  .hero .inner{grid-template-columns:1fr minmax(0,44%);}
 }
 
 /* mobile: whole photo, nothing on top of it — copy sits below, centred */
@@ -277,20 +292,21 @@ body.nav-open .site-header{box-shadow:none;}
   /* the desktop hero fills the viewport; on a phone it is only as tall
      as the photo plus the copy beneath it */
   .hero{display:block;min-height:0;background:var(--champagne);}
-  .hero-media{min-height:0;}
-  .hero-media::after{display:none;}
+  .hero-media{position:static;}
   .hero-media img{aspect-ratio:3/2;height:auto;object-position:left center;}
-  .hero .hero-copy{
-    display:block;padding:2.2em 0 2.6em;text-align:center;
-  }
+  .hero::after{display:none;}
+  .hero .hero-copy{padding:2.2em 0 2.6em;text-align:center;}
   /* mobile order: photo, location line, title, subtitle, then buttons */
   .hero .inner{
     display:flex;flex-direction:column;align-items:center;
     max-width:1140px;margin:0 auto;padding:0 22px;
   }
+  .hero .eyebrow{color:var(--clay-dark);margin-bottom:.8em;}
+  .hero h1,.hero .hero-sub{color:var(--ink);text-shadow:none;}
   .hero-title{
     font-size:clamp(2.5rem,12vw,3.4rem);line-height:1.06;margin-bottom:.4em;
   }
+  .hero-title em{color:var(--clay-dark);}
   .hero .hero-sub{
     font-size:1.05rem;line-height:1.5;max-width:28ch;margin:0 auto 1.6em;
   }
@@ -299,6 +315,11 @@ body.nav-open .site-header{box-shadow:none;}
     width:100%;max-width:420px;justify-content:center;
   }
   .hero .btn{text-align:center;padding:14px 8px;}
+  /* the photo is no longer behind the buttons, so put them back to dark-on-light */
+  .hero .btn--light{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .hero .btn--light:hover{background:transparent;color:var(--ink);}
+  .hero .btn--outline-light{border-color:var(--ink);color:var(--ink);}
+  .hero .btn--outline-light:hover{background:var(--ink);color:#fff;}
   .hero-tags{display:none;}
 }
 @media(max-width:560px){
@@ -506,7 +527,7 @@ body.nav-open .site-header{box-shadow:none;}
 .site-footer ul{list-style:none;margin:0;padding:0;}
 .site-footer li{margin-bottom:.6em;}
 .site-footer .brand-line{
-  font-family:'Cormorant Garamond',Georgia,serif;font-size:1.7rem;font-weight:500;
+  font-family:'Marcellus',Georgia,serif;font-size:1.7rem;font-weight:400;
   letter-spacing:.12em;text-transform:uppercase;color:#fff;
   margin:0 0 .15em;line-height:1;
 }
