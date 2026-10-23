@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lucyswainehairdressing.co.uk/sitemap.xml
+Sitemap: https://lucyswaine.brightsite.app/sitemap.xml

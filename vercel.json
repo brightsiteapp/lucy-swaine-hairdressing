@@ -7,10 +7,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.lucyswainehairdressing.co.uk"
+          "value": "lucy-swaine-hairdressing.vercel.app"
         }
       ],
-      "destination": "https://lucyswainehairdressing.co.uk/$1",
+      "destination": "https://lucyswaine.brightsite.app/$1",
       "permanent": true
     }
   ],
