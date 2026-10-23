@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucyswainehairdressing.co.uk/sitemap.xml
