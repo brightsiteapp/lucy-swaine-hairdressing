@@ -293,7 +293,10 @@ body.nav-open .site-header{box-shadow:none;}
      as the photo plus the copy beneath it */
   .hero{display:block;min-height:0;background:var(--champagne);}
   .hero-media{position:static;}
-  .hero-media img{aspect-ratio:3/2;height:auto;object-position:left center;}
+  /* No crop on mobile. The mirror sits dead centre (50.9%) in the photo,
+     so any crop pushes it off-centre — a 3/2 box was shaving 7% off the
+     right and shifting it to ~55%. Let the image keep its own ratio. */
+  .hero-media img{height:auto;aspect-ratio:auto;object-position:center;}
   .hero::after{display:none;}
   .hero .hero-copy{padding:2.2em 0 2.6em;text-align:center;}
   /* mobile order: photo, location line, title, subtitle, then buttons */
