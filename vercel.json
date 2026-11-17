@@ -7,10 +7,10 @@
       "has": [
         {
           "type": "host",
-          "value": "lucy-swaine-hairdressing.vercel.app"
+          "value": "merakisalon.vercel.app"
         }
       ],
-      "destination": "https://lucyswaine.brightsite.app/$1",
+      "destination": "https://merakisalon.brightsite.app/$1",
       "permanent": true
     }
   ],

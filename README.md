@@ -1,9 +1,9 @@
-# Lucy Swaine Hairdressing
+# Meraki Salon
 
-Static site for Lucy Swaine Hairdressing, a hair salon at 204–206 Hull Road,
+Static site for Meraki Salon, a hair salon at 204–206 Hull Road,
 Hessle, East Yorkshire.
 
-**Live:** https://lucyswaine.brightsite.app
+**Live:** https://merakisalon.brightsite.app
 
 ## Pages
 

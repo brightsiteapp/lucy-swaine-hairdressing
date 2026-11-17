@@ -1,4 +1,4 @@
-/* Lucy Swaine Hairdressing — shared site behaviour. No dependencies. */
+/* Meraki Salon — shared site behaviour. No dependencies. */
 (function () {
   var MOBILE = '(max-width: 860px)';
   var nav = document.querySelector('.nav');

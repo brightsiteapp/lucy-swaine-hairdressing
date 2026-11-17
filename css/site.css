@@ -1,4 +1,4 @@
-/* Lucy Swaine Hairdressing — Hessle. Single stylesheet, no dependencies. */
+/* Meraki Salon — Hessle. Single stylesheet, no dependencies. */
 
 :root{
   --ink:#1f1a15;
@@ -160,6 +160,8 @@ body.nav-open .site-header{box-shadow:none;}
   color:var(--clay-dark);margin-top:2px;
 }
 @media(max-width:400px){.brand b{font-size:1.8rem;}.brand span{font-size:.5rem;letter-spacing:.2em;}}
+.brand-logo{display:block;height:64px;width:auto;}
+@media(max-width:400px){.brand-logo{height:52px;}}
 .nav{display:flex;align-items:center;gap:28px;}
 .nav a{
   text-decoration:none;color:var(--ink);font-size:.72rem;font-weight:700;
