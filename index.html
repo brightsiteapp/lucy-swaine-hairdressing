@@ -37,16 +37,6 @@
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
     <nav class="nav">
       <a href="/" aria-current="page">Home</a>
-      <span class="has-drop">
-        <a href="/services">Services</a>
-        <span class="drop">
-          <a href="/services">All Services &amp; Prices</a>
-          <a href="/services#packages">Packages</a>
-          <a href="/services#colour">Hair Colouring</a>
-          <a href="/services#cutting">Cutting</a>
-          <a href="/services#styling">Styling &amp; Treatments</a>
-        </span>
-      </span>
       <a href="/#team">Team</a>
       <a href="/contact">Contact</a>
       <a class="btn btn--ghost nav-gift" href="tel:+447359431217">Call&nbsp;Lucy</a>
@@ -86,26 +76,20 @@
 </section>
 
 <section class="section">
-  <div class="container intro">
-    <span class="eyebrow">Welcome to Meraki Salon</span>
-    <h2>Hair, brows and beauty &mdash; done properly</h2>
-    <p class="lede">A friendly, fully qualified team of hairdressers and beauty specialists working from a bright, modern salon on Hull Road in Hessle, a few minutes from Hull and the Humber Bridge.</p>
-    <p>Every appointment starts with a proper chat about what you want and what will actually work for you &mdash; whether that&rsquo;s your hair, your brows or your lashes. Hair colour services include a free 15-minute consultation, and new colour clients have a patch test at least 48 hours beforehand.</p>
-    <div class="btn-row" style="justify-content:center">
-      <a class="btn btn--ghost" href="/services">Services &amp; Prices</a>
-      <a class="btn btn--ghost" href="/contact">Opening Hours</a>
+  <div class="container welcome">
+    <div class="welcome-text">
+      <span class="eyebrow">Welcome to Meraki Salon</span>
+      <h2>Hair, brows and beauty &mdash; done properly</h2>
+      <p class="lede">A friendly, fully qualified team of hairdressers and beauty specialists working from a bright, modern salon on Hull Road in Hessle, a few minutes from Hull and the Humber Bridge.</p>
+      <p>Every appointment starts with a proper chat about what you want and what will actually work for you &mdash; whether that&rsquo;s your hair, your brows or your lashes. Hair colour services include a free 15-minute consultation, and new colour clients have a patch test at least 48 hours beforehand.</p>
+      <div class="btn-row">
+        <a class="btn btn--ghost" href="/services">Services &amp; Prices</a>
+        <a class="btn btn--ghost" href="/contact">Opening Hours</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== TEAM ===================== -->
-<section class="section section--tint" id="team">
-  <div class="container">
-    <div class="center" style="margin-bottom:2.6em">
-      <span class="eyebrow">Our People</span>
-      <h2>Meet the team</h2>
-    </div>
-    <div class="team">
+    <div class="welcome-team" id="team">
+      <span class="eyebrow">Meet the team</span>
+      <div class="team">
       <a class="team-card" href="/chlo">
         <div class="team-photo"><img src="images/team-chlo.jpg" alt="Chlo, lash specialist at Meraki Salon" width="480" height="480" loading="lazy"></div>
         <h3>Chlo</h3>
@@ -127,6 +111,7 @@
       <div class="team-card team-card--blank" aria-hidden="true">
         <div class="team-photo"><svg viewBox="0 0 24 24" width="46%" height="46%" fill="currentColor"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.100 8 7.500z"/></svg></div>
       </div>
+    </div>
     </div>
   </div>
 </section>
